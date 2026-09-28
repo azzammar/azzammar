@@ -1,0 +1,13 @@
+#!ipxe
+
+dhcp
+set server-ip 192.168.1.10
+
+echo ===============================================
+echo     WINDOWS DISKLESS PRODUCTION ENVIRONMENT
+echo ===============================================
+echo Initilizing network drive arrays...
+
+sanhook iscsi:${server-ip}:::1:iqn.2026-09.server:gamedisk
+
+sanhook iscsi:${server-ip}:::1:iqn.2026-09.server:windows-os

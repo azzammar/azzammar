@@ -1,0 +1,17 @@
+#!ipxe
+
+dhcp
+
+chain http://192.168.10.10/diskless/boot.cgi?mac=${mac:hexhyp} || goto chain_failed
+exit
+
+#sanboot --drive 0x80 iscsi:192.168.1.10:::1:iqn.2026-09.server:client-asus-z97c
+#sanboot --drive 0x80 iscsi:192.168.1.10:::1:iqn.2026-09.server:client-asus-z87k-pc01
+#sanboot iscsi:192.168.1.10:::1:iqn.2026-09.server:windows-os
+#boot
+
+:chain_failed
+echo Gagal mengunci/membuka iSCSI target!
+echo Tekan tombol apa saja untuk kembali ke Menu Utama...
+prompt
+goto start
