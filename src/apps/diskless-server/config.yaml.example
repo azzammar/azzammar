@@ -1,0 +1,35 @@
+server:
+  ip: "192.168.10.10"
+  write_cache_dir: "/mnt/write_cache"
+  master_image: "/var/diskless/images/windows_base.img"
+  mount_prefix: "/mnt/vdisk"
+  winreg_injector_path: "/var/www/html/diskless/winreg_injector/winreg_injector"
+  game_image: "/mnt/games/games_master.img"
+  game_mount: "/mnt/games_update_point"
+
+# Pemetaan MAC Address Bersih (1 Perangkat NBD = 1 PC Slot)
+# Mode: "read-only" and "super-user"
+clients:
+  - mac: "c4-62-37-0b-c6-9f"
+    id: "client_asus_z97c"
+    iqn: "iqn.2026-09.server:client-asus-z97c"
+    nbd: "/dev/nbd2"
+    profile: "rtk2500"
+    tid: 4
+    mode: "super-user"
+
+  - mac: "c0-a2-b6-a6-8a-60"
+    id: "client_asus_z87k_pc01"
+    iqn: "iqn.2026-09.server:client-asus-z87k-pc01"
+    nbd: "/dev/nbd3"
+    profile: "i226V"
+    tid: 5
+    mode: "read-only"
+
+  - mac: "c0-a2-b6-a6-8a-2d"
+    id: "client_asus_z87k_pc02"
+    iqn: "iqn.2026-09.server:client-asus-z87k-pc02"
+    nbd: "/dev/nbd4"
+    profile: "i226V"
+    tid: 6
+    mode: "read-only"

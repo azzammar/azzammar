@@ -1,1 +1,5 @@
 build/
+
+src/apps/diskless-server/config.yaml
+src/apps/diskless-server/src/boot_client
+src/apps/diskless-server/src/*.o
