@@ -1,5 +1,9 @@
 build/
 
 src/apps/diskless-server/config.yaml
-src/apps/diskless-server/src/boot_client
-src/apps/diskless-server/src/*.o
+src/apps/diskless-server/src/boot_loader/boot_loader
+src/apps/diskless-server/src/game_updater/game_updater
+src/apps/diskless-server/src/winreg_injector/winreg_injector
+src/apps/diskless-server/src/boot_client/boot_client
+src/apps/diskless-server/src/**/*.o
+
