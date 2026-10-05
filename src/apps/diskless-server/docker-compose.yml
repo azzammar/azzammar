@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  azzammar-diskless:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: azzammar-diskless-server
+    restart: always
+    network_mode: "host" # Wajib agar DHCP & TFTP broadcast terdeteksi oleh klien PXE
+    privileged: true     # Wajib agar tgtd bisa memetakan iSCSI target ke kernel host
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./config/dnsmasq.conf:/etc/dnsmasq.conf:ro
+      - ./config/targets.conf:/etc/tgt/targets.conf:z
+      # Volume untuk menyimpan data image OS client diskless
+      - /mnt/diskless_storage:/var/lib/iscsi_disks
+    environment:
+      - NODE_ENV=production
+

@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  azzammar-core-app:
+    build:
+      context: ../../../
+      dockerfile: src/apps/azzammar-core/Dockerfile
+    container_name: azzammar-core-container
+    ports:
+      - "8080:80"
+    volumes:
+      # Menyimpan database SQLite secara persisten di lokal PC
+      - azzammar_db_data:/usr/lib/cgi-bin/azzammar/data
+    restart: always
+
+volumes:
+  azzammar_db_data:
+

@@ -1,0 +1,6 @@
+build/
+node_modules/
+src/frontend/node_modules/
+src/frontend_bak/
+.git/
+.DS_Store
